@@ -8,6 +8,10 @@ const admin = async (req, res) => {
     where: {
       usuarioId: id,
     },
+    include: [
+      {model: Categoria, as: 'categoria'},
+      {model: Precio, as: 'precio'}
+    ]
   });
 
   res.render("propiedades/admin", {
